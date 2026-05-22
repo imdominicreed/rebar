@@ -14,7 +14,6 @@ function activate(context) {
   const serverOptions = {
     command: command,
     args: ["lsp"],
-    transport: TransportKind.stdio,
   };
 
   const clientOptions = {

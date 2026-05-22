@@ -5,6 +5,8 @@ import (
 	"github.com/willackerly/rebar/cli/internal/lsp"
 )
 
+var lspStdio bool
+
 var lspCmd = &cobra.Command{
 	Use:   "lsp",
 	Short: "Start the Language Server Protocol server",
@@ -29,4 +31,9 @@ Configure your editor to run "rebar lsp" as a language server:
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return lsp.Serve(Version)
 	},
+}
+
+func init() {
+	lspCmd.Flags().BoolVar(&lspStdio, "stdio", false, "use stdio transport (default, accepted for editor compatibility)")
+	lspCmd.Flags().String("clientProcessId", "", "editor client process ID (accepted for editor compatibility)")
 }
