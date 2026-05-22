@@ -51,7 +51,7 @@ var rootCmd = &cobra.Command{
 			return nil
 		}
 		// These commands handle their own repo root
-		if name == "init" || name == "new" || name == "audit" || name == "adopt" {
+		if name == "init" || name == "new" || name == "audit" || name == "adopt" || name == "lsp" {
 			if cmd.Parent() != nil && cmd.Parent().Name() == "rebar" {
 				return nil
 			}
@@ -147,6 +147,9 @@ func init() {
 	keyCmd.GroupID = "keys"
 	rootCmd.AddCommand(signCmd)
 	rootCmd.AddCommand(keyCmd)
+
+	// Tools
+	rootCmd.AddCommand(lspCmd)
 
 	rootCmd.AddCommand(&cobra.Command{
 		Use:   "version",

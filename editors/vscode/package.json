@@ -1,0 +1,33 @@
+{
+  "name": "rebar-lsp",
+  "displayName": "Rebar LSP",
+  "description": "Language server for rebar contract-driven development",
+  "version": "0.1.0",
+  "publisher": "rebar",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": ["Programming Languages"],
+  "activationEvents": [
+    "workspaceContains:.rebarrc",
+    "workspaceContains:.rebar",
+    "onLanguage:go",
+    "onLanguage:markdown"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Rebar",
+      "properties": {
+        "rebar.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the rebar CLI binary. Leave empty to use 'rebar' from PATH."
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}

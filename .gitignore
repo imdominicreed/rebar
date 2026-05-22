@@ -27,3 +27,8 @@ bin/__pycache__/
 # Claude Code agent harness ephemeral worktrees
 .claude/worktrees/
 bin/rebar
+
+# Editor extensions
+editors/vscode/node_modules/
+editors/vscode/*.vsix
+.vscode/
